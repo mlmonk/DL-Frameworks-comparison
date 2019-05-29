@@ -47,8 +47,8 @@ x = Xtrain;                                              % inputs
 t = Ytrain;                                              % targets
 
 hiddenLayerSize = [256];                                 % number of hidden layer neurons
-trainFcn = 'traingd';                                    % gradient descent backpropagation
-% trainFcn = 'trainscg';                                   % scaled conjugate gradient
+% trainFcn = 'traingd';                                    % gradient descent backpropagation
+trainFcn = 'trainscg';                                   % scaled conjugate gradient
 performFcn = 'crossentropy';                             % Loss: crossentropy
 
 net = patternnet(hiddenLayerSize,trainFcn,performFcn);   % pattern recognition network
