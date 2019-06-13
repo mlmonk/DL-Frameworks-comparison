@@ -28,20 +28,20 @@ numTrainFiles = 750;
 layers = [
     imageInputLayer([28 28 1])
     
-    convolution2dLayer(3,8,'Padding','same')
-    batchNormalizationLayer
+    convolution2dLayer(3,3)
     reluLayer
     
     maxPooling2dLayer(2,'Stride',2)
     
-    convolution2dLayer(3,16,'Padding','same')
-    batchNormalizationLayer
+    convolution2dLayer(3,64)
     reluLayer
     
     maxPooling2dLayer(2,'Stride',2)
     
-    convolution2dLayer(3,32,'Padding','same')
-    batchNormalizationLayer
+    convolution2dLayer(3,64)
+    reluLayer
+    
+    fullyConnectedLayer(64)
     reluLayer
     
     fullyConnectedLayer(10)
@@ -50,7 +50,7 @@ layers = [
 
 options = trainingOptions('sgdm', ...
     'InitialLearnRate',0.01, ...
-    'MaxEpochs',20, ...
+    'MaxEpochs',2, ...
     'Shuffle','every-epoch', ...
     'ValidationData',imdsValidation, ...
     'ValidationFrequency',30, ...
